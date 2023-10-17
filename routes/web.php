@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\ReaderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +31,7 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('/book', [BookController::class, 'index'])->name('books.index');
+
+Route::get('/reader', [ReaderController::class, 'index'])->name('readers.read');

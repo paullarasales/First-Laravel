@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ReaderController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\StudentController;
 
 
 Route::get('/', function () {
@@ -23,12 +25,8 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/book', [BookController::class, 'index'])->name('books.index');
 
-Route::get('/reader', [ReaderController::class, 'index'])->name('readers.read');
+Route::get('/product', [ProductController::class, 'index'])->name('product.index');
+Route::get('product/create', [ProductController::class, 'create'])->name('product.create');
+Route::post('product', [ProductController::class, 'add'])->name('product.add');
 
-Route::get('/hello', function() {
-    return 'Hello From Laravel';
-});
-
-Route::get('/home', [DashboardController::class, 'index']);
